@@ -280,6 +280,9 @@ func _build_hud() -> Control:
 	hero.text = "Aria  Lv 12"
 	hero.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	name_row.add_child(hero)
+	var breath := Control.new()
+	breath.custom_minimum_size.x = 8
+	name_row.add_child(breath)
 	for i in 3:
 		name_row.add_child(_icon("icon_heart" if i < 2 else "icon_heart_empty"))
 	sbox.add_child(HSeparator.new())
@@ -400,7 +403,7 @@ func _build_menu() -> Control:
 	var left := PanelContainer.new()
 	left.custom_minimum_size.x = 280
 	var lbox := VBoxContainer.new()
-	lbox.add_theme_constant_override("separation", 8)
+	lbox.add_theme_constant_override("separation", 6)
 	left.add_child(lbox)
 	var title := Label.new()
 	title.text = "MOON ANVIL"
@@ -413,7 +416,7 @@ func _build_menu() -> Control:
 	tagline.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	lbox.add_child(tagline)
 	lbox.add_child(HSeparator.new())
-	for item in [["Continue", false, ""], ["New game", false, ""], ["Load game", true, "glyph_lock"], ["Options", false, "glyph_gear"], ["Quit", false, "glyph_close"]]:
+	for item in [["Continue", false, ""], ["New game", false, "glyph_plus"], ["Load game", true, "glyph_lock"], ["Quit", false, "glyph_close"]]:
 		var b := Button.new()
 		b.text = item[0]
 		b.disabled = item[1]
@@ -424,6 +427,7 @@ func _build_menu() -> Control:
 			_icons.append([b, item[2]])
 		lbox.add_child(b)
 	var saves := ItemList.new()
+	saves.name = "Saves"
 	saves.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	for save in ["1  Aria    Lv 12", "2  Borin   Lv 4", "3  empty", "4  empty", "5  empty", "6  empty"]:
 		saves.add_item(save)
@@ -434,7 +438,7 @@ func _build_menu() -> Control:
 	var right := PanelContainer.new()
 	right.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	var rbox := VBoxContainer.new()
-	rbox.add_theme_constant_override("separation", 8)
+	rbox.add_theme_constant_override("separation", 5)
 	right.add_child(rbox)
 	rbox.add_child(_header("Options"))
 	var name_edit := LineEdit.new()
@@ -519,9 +523,12 @@ func _build_shop() -> Control:
 	]:
 		var line := HBoxContainer.new()
 		line.add_theme_constant_override("separation", 8)
+		# The rows share the height of the panel, whatever the theme's margins are.
+		line.size_flags_vertical = Control.SIZE_EXPAND_FILL
 		lbox.add_child(line)
 		line.add_child(_slot(item[0], 44, item[4]))
 		var item_name := Label.new()
+		item_name.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 		item_name.text = item[1]
 		item_name.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		item_name.clip_text = true
@@ -534,6 +541,7 @@ func _build_shop() -> Control:
 			line.add_child(tag)
 		var price := Label.new()
 		price.text = item[2]
+		price.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 		price.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 		price.custom_minimum_size.x = 64
 		line.add_child(price)

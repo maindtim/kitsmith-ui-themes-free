@@ -1,0 +1,21 @@
+; Engine configuration file.
+
+config_version=5
+
+[application]
+
+config/name="Kitsmith UI Themes - Free Sample"
+config/description="Two pixel-art UI themes as ready-to-use Godot 4 Themes, with a demo. Free sample of the Kitsmith UI Themes Pack."
+run/main_scene="res://demo/demo.tscn"
+config/features=PackedStringArray("4.4")
+
+[display]
+
+window/size/viewport_width=1152
+window/size/viewport_height=648
+window/stretch/mode="canvas_items"
+window/stretch/aspect="keep"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

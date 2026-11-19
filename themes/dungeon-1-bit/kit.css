@@ -1,0 +1,25 @@
+/* Kitsmith kit at 3x. Each class is a 9-slice box drawn with border-image. */
+[class^="ks-"], [class*=" ks-"] { box-sizing: border-box; border-style: solid; image-rendering: pixelated; }
+.ks-panel { border-width: 18px 18px 18px 18px; border-image: url("png/panel.png") 18 18 18 18 fill / 18px 18px 18px 18px repeat; color: #ffffff; }
+.ks-button { border-width: 18px 18px 21px 18px; border-image: url("png/button_normal.png") 18 18 21 18 fill / 18px 18px 21px 18px; color: #ffffff; background: none; cursor: pointer; }
+.ks-button:hover { border-image-source: url("png/button_hover.png"); color: #ffffff; }
+.ks-button:active { border-image-source: url("png/button_pressed.png"); color: #ffffff; }
+.ks-button:disabled { border-image-source: url("png/button_disabled.png"); cursor: default; opacity: 0.8; color: #ffffff; }
+.ks-button.ks-accent { border-image-source: url("png/button_accent_normal.png"); color: #000000; }
+.ks-button.ks-accent:hover { border-image-source: url("png/button_accent_hover.png"); color: #000000; }
+.ks-button.ks-accent:active { border-image-source: url("png/button_accent_pressed.png"); color: #000000; }
+.ks-button.ks-accent:disabled { border-image-source: url("png/button_accent_disabled.png"); color: #000000; }
+.ks-slot { border-width: 12px 12px 12px 12px; border-image: url("png/slot.png") 12 12 12 12 fill / 12px 12px 12px 12px; }
+.ks-bar { border-width: 9px 9px 9px 9px; border-image: url("png/bar_back.png") 9 9 9 9 fill / 9px 9px 9px 9px; height: 30px; }
+.ks-bar > .ks-fill { border-width: 3px 3px 3px 3px; border-image: url("png/bar_fill.png") 3 3 3 3 fill / 3px 3px 3px 3px; height: 100%; }
+.ks-tab { border-width: 24px 18px 3px 18px; border-image: url("png/tab_unselected.png") 24 18 3 18 fill / 24px 18px 3px 18px; color: #ffffff; }
+.ks-tab.ks-selected { border-width: 18px 18px 3px 18px; border-image: url("png/tab_selected.png") 18 18 3 18 fill / 18px 18px 3px 18px; }
+.ks-bubble { border-width: 9px 9px 9px 9px; border-image: url("png/bubble.png") 9 9 9 9 fill / 9px 9px 9px 9px; color: #000000; }
+.ks-frame { border-width: 12px 12px 12px 12px; border-image: url("png/frame.png") 12 12 12 12 fill / 12px 12px 12px 12px; }
+.ks-focus { border-width: 18px 18px 21px 18px; border-image: url("png/focus.png") 18 18 21 18 fill / 18px 18px 21px 18px; }
+.ks-header { border-width: 9px 9px 9px 9px; border-image: url("png/header.png") 9 9 9 9 fill / 9px 9px 9px 9px; color: #ffffff; }
+.ks-keycap { border-width: 9px 9px 15px 9px; border-image: url("png/keycap.png") 9 9 15 9 fill / 9px 9px 15px 9px; color: #000000; display: inline-block; }
+.ks-badge { border-width: 12px 12px 12px 12px; border-image: url("png/badge.png") 12 12 12 12 fill / 12px 12px 12px 12px; color: #000000; display: inline-block; }
+.ks-scroll-thumb { border-width: 9px 9px 9px 9px; border-image: url("png/scroll_thumb.png") 9 9 9 9 fill / 9px 9px 9px 9px; }
+.ks-separator { border: 0; height: 6px; background: url("png/separator.png") repeat-x; }
+.ks-cursor { cursor: url("png/cursor.png") 0 0, auto; }
